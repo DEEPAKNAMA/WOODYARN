@@ -24,7 +24,9 @@ public class Blog {
             generator = "blog_id_sequence"
     )
     private Long blogId;
+    @Column(length = 500)
     private String blogTitle;
+    @Column(length = 500)
     private String blogDescription;
     private String blogVideo;
     private String blogImage;

@@ -1,0 +1,64 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Title</title>
+</head>
+<body>
+<section>
+
+
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-2">
+            <div class="card border-dark shadow bg-body rounded container-fluid col" th:each="p :${product}" style="width: 25rem;">
+                <div class="card-header"><h5 th:text="${p.product.productTitle}"></h5></div>
+                <div class="card-body">
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <center>
+                                    <img th:src="@{'/storage/'+${p.product.productImage1}}"  height="250" width="250" alt="Sample"
+                                    ></center>
+                            </div>
+                            <div class="carousel-item ">
+                                <center>
+                                    <img th:src="@{'/storage/'+${p.product.productImage2}}" height="250" width="250"
+                                    ></center>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <h6>Description :</h6>
+                    <p class="card-text" th:text="${p.product.productDescription}"></p>
+                    <h6 th:text="'Price : '+${p.product.productCost}"></h6>
+
+                </div>
+                <div class="card-footer">
+
+                    <center>
+                        <a><button type="button" class="btn btn-outline-dark" data-bs-toggle="tooltip" data-bs-placement="top" title="Add To Favorite"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                        </svg></button></a>&nbsp;&nbsp;&nbsp
+
+                        &nbsp;&nbsp;&nbsp;
+                        <a th:href="@{'/shop/buy/'+${p.product.productId}}"><button type="button" class="btn btn-outline-dark" >Buy Know</button></a>
+                        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                        <a th:href="${p.product.productVideoUrl}" target="_blank">
+                            <button type="button" class="btn btn-outline-dark" data-bs-toggle="tooltip" data-bs-placement="top" title="Video on how Product made by the Seller">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                                    <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+                                    <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
+                                </svg>
+                            </button>
+                        </a>
+
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+</body>
+</html>

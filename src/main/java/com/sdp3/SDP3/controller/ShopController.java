@@ -2,14 +2,8 @@ package com.sdp3.SDP3.controller;
 
 import com.razorpay.Order;
 import com.razorpay.RazorpayClient;
-import com.sdp3.SDP3.entites.Orders;
-import com.sdp3.SDP3.entites.Product;
-import com.sdp3.SDP3.entites.Store;
-import com.sdp3.SDP3.entites.Users;
-import com.sdp3.SDP3.service.OrderService;
-import com.sdp3.SDP3.service.ProductService;
-import com.sdp3.SDP3.service.StoreService;
-import com.sdp3.SDP3.service.UsersService;
+import com.sdp3.SDP3.entites.*;
+import com.sdp3.SDP3.service.*;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 
@@ -38,6 +33,9 @@ public class ShopController {
 
     @Autowired
     private StoreService storeService;
+
+    @Autowired
+    private FavouriteService favouriteService;
 
     @RequestMapping("/buy/{id}")
     public String buyProduct(@PathVariable(value = "id") String pid, HttpSession session, Model model){
@@ -64,7 +62,7 @@ public class ShopController {
         int amt=Integer.parseInt(data.get("amount").toString());
         String address=data.get("address").toString();
         System.out.println(address);
-        var client=new RazorpayClient("rzp_test_Upla1xiTApXSWX","VMC8m3cJ5NIhAEWWBsCPdf1a");
+        var client=new RazorpayClient("*************","****************");
         JSONObject options = new JSONObject();
         options.put("amount", amt*100);
         options.put("currency", "INR");
@@ -98,6 +96,27 @@ public class ShopController {
         o.setOrderStatus(data.get("order_status").toString());
         orderService.saveOrder(o);
         return ResponseEntity.ok(Map.of("msg","updated"));
+    }
+
+
+
+    @RequestMapping("/fav/{id}")
+    public String favProduct(@PathVariable(value = "id") String pid, HttpSession session, Model model){
+        Product p=productService.findProductById(pid);
+        Long uid=(Long) session.getAttribute("id");
+        if(uid==null){
+            model.addAttribute("bsorll",1);
+            return "home";
+        }
+        Users u=usersService.getUserByUserId(uid);
+        Store s=p.getStore();
+        Favourite favourite=new Favourite();
+        favourite.setUsers(u);
+        favourite.setProduct(p);
+        favouriteService.saveFavourite(favourite);
+        List<Favourite> products=favouriteService.getFavProductsByUserId(u);
+        model.addAttribute("product",products);
+        return "fav";
     }
 
 

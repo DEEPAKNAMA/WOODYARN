@@ -32,4 +32,9 @@ public class OrderServiceImpl implements OrderService{
     public List<Orders> getOrdersByStoreId(Long sid) {
         return orderRepository.findOrdersByStoreId(sid);
     }
+
+    @Override
+    public List<Orders> getAllOrders() {
+        return orderRepository.findAll();
+    }
 }

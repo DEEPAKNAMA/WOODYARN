@@ -25,7 +25,9 @@ public class Product {
             generator = "product_id_sequence"
     )
     private Long productId;
+    @Column(length = 500)
     private String productTitle;
+    @Column(length = 500)
     private String productDescription;
     private String productImage1;
     private String productImage2;

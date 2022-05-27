@@ -12,7 +12,7 @@ const paymentStart = () =>{
             console.log(response)
             if(response.status=="created"){
                 let options={
-                    key:'rzp_test_Upla1xiTApXSWX',
+                    key:'rzp_live_eCZv8Rpc6rj3OA',
                     amount:response.amount,
                     currency:'INR',
                     name:'Wood & Yarn',

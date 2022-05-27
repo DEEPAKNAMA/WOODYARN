@@ -57,66 +57,93 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-house-door mb-1" viewBox="0 0 16 16">
                             <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"></path>
                         </svg>
-                        &nbsp;
+
                         Home
                     </a>
                 </li>
-<!--                <li class="nav-item dropdown">-->
-<!--                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
-<!--                        Daily Deals-->
-<!--                    </a>-->
-<!--                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">-->
+                <!--                <li class="nav-item dropdown">-->
+                <!--                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+                <!--                        Daily Deals-->
+                <!--                    </a>-->
+                <!--                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">-->
 
-<!--                        <li><a class="dropdown-item" href="/DialyDeals/?estore_id=3">SnapDeal</a></li>-->
+                <!--                        <li><a class="dropdown-item" href="/DialyDeals/?estore_id=3">SnapDeal</a></li>-->
 
-<!--                        <li><a class="dropdown-item" href="/DialyDeals/?estore_id=2">Flipcart</a></li>-->
+                <!--                        <li><a class="dropdown-item" href="/DialyDeals/?estore_id=2">Flipcart</a></li>-->
 
-<!--                        <li><a class="dropdown-item" href="/DialyDeals/?estore_id=1">Amazon</a></li>-->
+                <!--                        <li><a class="dropdown-item" href="/DialyDeals/?estore_id=1">Amazon</a></li>-->
 
-<!--                        <li><a class="dropdown-item" href="/DialyDeals/?estore_id=5">Myntra</a></li>-->
+                <!--                        <li><a class="dropdown-item" href="/DialyDeals/?estore_id=5">Myntra</a></li>-->
 
-<!--                        <li><hr class="dropdown-divider"></li>-->
-<!--                        <li><a class="dropdown-item" href="/DialyDeals">All Deals</a></li>-->
-<!--                    </ul>-->
-<!--                </li>-->
+                <!--                        <li><hr class="dropdown-divider"></li>-->
+                <!--                        <li><a class="dropdown-item" href="/DialyDeals">All Deals</a></li>-->
+                <!--                    </ul>-->
+                <!--                </li>-->
 
                 <li class="nav-item" th:if="${session.storeid}">
-                    <a class="nav-link" th:href="@{/store}">Store</a>
+                    <a class="nav-link active" th:href="@{/store}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-shop mb-1" viewBox="0 0 16 16">
+                            <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z"/>
+                        </svg>&nbsp;
+                        Store</a>
                 </li>
+                &nbsp;&nbsp;
+                <li class="nav-item">
+                    <a class="nav-link active" th:href="@{/shop}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                             class="bi bi-cart-check mb-1" viewBox="0 0 16 16">
+                            <path d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
+                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                        </svg>&nbsp;
+                        Shop</a>
+                </li>
+                &nbsp;&nbsp;
 
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/shop}">Shop</a>
+                    <a class="nav-link active" th:href="@{/adds}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-graph-up-arrow mb-1" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0Zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5Z"/>
+                        </svg> &nbsp; Adds</a>
                 </li>
 
 
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/adds}">Adds</a>
+
+                <!--                <li class="nav-item">-->
+                <!--                    <a class="nav-link" th:href="@{/events}">Events</a>-->
+                <!--                </li>-->
+                &nbsp;&nbsp;
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link active dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Others
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+
+                        <li><a class="dropdown-item" th:href="@{/about}">About Us</a></li>
+
+                        <li><a class="dropdown-item" th:href="@{/contact}">Contact Us</a></li>
+                        <!--                                        <li><hr class="dropdown-divider"></li>-->
+                        <!--                                        <li><a class="dropdown-item" href="/DialyDeals">All Deals</a></li>-->
+                    </ul>
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/events}">Events</a>
-                </li>
-
-
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Others
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-
-                                                                <li><a class="dropdown-item" th:href="@{/about}">About Us</a></li>
-
-                                                                <li><a class="dropdown-item" th:href="@{/contact}">Contact Us</a></li>
-<!--                                        <li><hr class="dropdown-divider"></li>-->
-<!--                                        <li><a class="dropdown-item" href="/DialyDeals">All Deals</a></li>-->
-                                    </ul>
-                                </li>
-
 
 
             </ul>
             <ul class="navbar-nav">
 
+                <li class="nav-item" th:if="${session.id}">
+                    <a class="nav-link active" th:href="@{/orders}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-list-check" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3.854 2.146a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 3.293l1.146-1.147a.5.5 0 0 1 .708 0zm0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 7.293l1.146-1.147a.5.5 0 0 1 .708 0zm0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
+                        </svg> &nbsp; Orders</a>
+                </li>
+
+                <li class="nav-item" th:if="${session.id}">
+                    <a class="nav-link active" th:href="@{/favourite}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                        </svg> &nbsp; Favourite</a>
+                </li>
             <li class="nav-item dropdown" th:if="${session.id}">
                     <a class="nav-link" href="#" id="navbarScrollingDropdow" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
                         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="white"
@@ -135,14 +162,14 @@
                             <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
                         </svg> &nbsp; &nbsp;Profile</a></li>
 
-                        <li><a class="dropdown-item" th:href="@{/events}">
+<!--                        <li><a class="dropdown-item" th:href="@{/events}">-->
 
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-calendar-event" viewBox="0 0 16 16">
-                                <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
-                                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-                            </svg>
-                            &nbsp;  &nbsp;Events
-                        </a></li>
+<!--                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-calendar-event" viewBox="0 0 16 16">-->
+<!--                                <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>-->
+<!--                                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>-->
+<!--                            </svg>-->
+<!--                            &nbsp;  &nbsp;Events-->
+<!--                        </a></li>-->
 
                         <li><a class="dropdown-item" th:href="@{/shop}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
@@ -351,7 +378,7 @@
 
 <footer class="py-5 bg-dark mt-3">
     <div class="container">
-        <p class="m-0 text-center text-white">Copyright © Wood & Yarn 2021</p>
+        <a th:href="@{/a}"><p class="m-0 text-center text-white">Copyright © Wood & Yarn 2021</p></a>
     </div>
     <!-- /.container -->
 </footer>

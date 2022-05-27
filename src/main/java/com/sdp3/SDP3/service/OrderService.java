@@ -11,4 +11,6 @@ public interface OrderService {
     List<Orders> getOrdersByUserId(Long uid);
 
     List<Orders> getOrdersByStoreId(Long sid);
+
+    List<Orders> getAllOrders();
 }

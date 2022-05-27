@@ -31,6 +31,9 @@ public class HomeController {
     @Autowired
     private WalletService walletService;
 
+    @Autowired
+    private FavouriteService favouriteService;
+
     @RequestMapping("/home")
     public String home(Model model){
         model.addAttribute("title","Home - Wood & Yarn");
@@ -105,6 +108,25 @@ public class HomeController {
         List<Orders> orders=orderService.getOrdersByUserId(uid);
         model.addAttribute("userorders",orders);
         return "orders";
+    }
+
+
+    @RequestMapping("/favourite")
+    public String favourite(Model model,HttpSession session){
+        model.addAttribute("title","Favourite - Wood & Yarn");
+        Long uid=(Long) session.getAttribute("id");
+        Users u=usersService.getUserByUserId(uid);
+        List<Favourite> products=favouriteService.getFavProductsByUserId(u);
+        model.addAttribute("product",products);
+        return "fav";
+    }
+
+    @RequestMapping("/a")
+    public String admin(Model model,HttpSession session){
+        model.addAttribute("title","Admin - Wood & Yarn");
+        List<Orders> orders=orderService.getAllOrders();
+        model.addAttribute("orders",orders);
+        return "admin";
     }
 
 }

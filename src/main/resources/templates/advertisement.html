@@ -8,26 +8,41 @@
 <section>
 
     <div class="container mb-3 mt-3" th:each="b :${blogs}">
-        <div>
-            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                <div class="col p-4 d-flex flex-column position-static">
-                    <strong class="d-inline-block mb-2 text-primary">Store Name</strong>
-                    <h3 class="mb-0" th:text="${b.blogTitle}"></h3>
-                    <div class="mb-1 text-muted">Nov 12</div>
-                    <p class="card-text mb-auto"  th:text="${b.blogDescription}"></p>
-                    <a href="#" class="stretched-link">Continue reading</a>
-                </div>
-                <div class="col-auto d-none d-lg-block">
-                    <img
-                            th:src="@{'/img/'+${b.blogImage}}"
-                            class="card-img-top"
-                            alt="..."
-                            style="height: 300px;width:500px;"
-                    />
-                </div>
+
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-primary" th:text="${b.store.storeName}">Store Name</strong>
+                <h3 class="mb-0" th:text="${b.blogTitle}"></h3>
+                <!--                <div class="mb-1 text-muted">Nov 12</div>-->
+                <p class="card-text mb-auto"  th:text="${b.blogDescription}"></p>
+                <center>
+                    <a th:href="${b.blogVideo}" target="_blank">
+                        <button type="button" class="btn btn-outline-dark" data-bs-toggle="tooltip" data-bs-placement="top" title="Video on how Product made by the Seller">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                                <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+                                <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
+                            </svg>
+                            Video
+                        </button>
+                    </a>
+                </center>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+                <img
+                        th:src="@{'/storage/'+${b.blogImage}}"
+                        class="card-img-top"
+                        alt="..."
+                        style="height: 300px;width:500px;"
+                />
             </div>
         </div>
+
+
+
     </div>
+
+
+
 
 </section>
 </body>

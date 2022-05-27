@@ -1,0 +1,77 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Title</title>
+</head>
+<body>
+<section>
+
+    <div class="container">
+        <div class="card border-dark mt-3 " th:each="o :${orders}">
+            <h4 class="card-header" th:text="'Order Id : '+${o.orderId}+'  ( '+${o.orderedProductId.productTitle}+' )'" >
+            </h4>
+
+            <div class="card-body">
+                <blockquote class="blockquote mb-0 row">
+                    <div class="col-3"> <h5>
+                        Seller Details :
+                    </h5>
+                        <h5 style="font-weight:normal;" class="card-text" th:text="'Name : '+${o.orderedStoreId.storeName}"></h5>
+                        <h5 style="font-weight:normal;" class="card-text" th:text="'Phone Number : '+${o.orderedStoreId.phoneNumber}"></h5>
+                        <h5 style="font-weight:normal;" class="card-text" th:text="'Email : '+${o.orderedStoreId.email}"></h5>
+                    </div>
+                    <div class="col-3">
+                        <h5>
+                            Order Details :
+                        </h5>
+                        <h5 style="font-weight:normal;" class="card-text" th:text="'Price : '+${o.orderedProductId.productCost}"></h5>
+                        <h5 style="font-weight:normal;" class="card-text" th:text="'Payment Id : '+${o.paymentId}"></h5>
+                        <h5 style="font-weight:normal;" class="card-text" th:text="'Delivery Address : '+${o.orderAddress}"></h5>
+
+                        <form th:action="@{'/a/addmtm/'+${o.orderedProductId.productCost}}" method="post" th:object="${wallet}">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="1" placeholder="" th:value="${o.orderedStoreId.storeId}" value="" required="" hidden name="store">
+<!--                                <input type="text" class="form-control" id="2" placeholder="" th:value="${o.orderedProductId.productCost}" value="" required="" hidden name="">-->
+                                <button class="btn btn-outline-dark" type="submit">Add Money To Merchant</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="col-3">
+
+                        <h5>
+                            Order Status :
+                        </h5>
+                        <h5 style="font-weight:normal;" class="card-text" th:text="'Payment Status : '+${o.orderStatus}"></h5>
+                        <h5 style="font-weight:normal;" class="card-text" th:text="'Delivery Status : '+${o.orderState}"></h5>
+                        <h5 style="font-weight:normal;" class="card-text" th:text="'Order Status : '+${o.orderStatus}"></h5>
+                        <form th:action="@{/a/updateOrderState}" method="post" th:object="${orders}">
+
+                            <div class="input-group">
+                                <select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon" name="orderState">
+                                    <option selected>Choose...</option>
+                                    <option value="Picked Order">Picked Order</option>
+                                    <option value="Shipped">Shipped </option>
+                                    <option value="Delivered">Delivered</option>
+                                </select>
+
+                                <input th:value="${o.orderId}" hidden name="orderId">
+                                <button class="btn btn-outline-dark" type="submit">Submit</button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                    <div class="col-3">
+                        <img th:src="@{'/storage/'+${o.orderedProductId.productImage1}}" alt="" width="130" height="130">
+                        <img th:src="@{'/storage/'+${o.orderedProductId.productImage2}}" alt="" width="130" height="130">
+                    </div>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+
+</section>
+</body>
+</html>
