@@ -5,295 +5,297 @@
     <title th:text="${title}">Title</title>
 </head>
 <body>
-<section>
-    <center><strong style="font-size:30px;text-shadow: 1px 1px 2px black;" th:text="${store.storeName}"></strong></center>
-    <hr class="featurette-divider"/>
-    <div class="py-3 text-center">
-        <img class="d-block mx-auto mb-4" th:src="@{'/img/'+${store.storeImage}}" alt="" width="120" height="120">
-    </div>
-    <center><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-wallet2" viewBox="0 0 16 16">
-        <path d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484L5.562 3zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z"/>
-    </svg>&nbsp;<strong class="mt-8" style="font-size:20px;" th:text="'Wallet Balance : Rs. '+${wallet.walletBalance}"> </strong></center>
-    <hr class="featurette-divider"/>
-    <center>
-        <div class="container mt-3">
-            <div class="row">
-                <div class="col">
-                    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-                        Add Product
-                    </button>
-
-                </div>
-                <div class="col">
-
-                    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                        Add Blog
-                    </button>
-
-                </div>
-                <div class="col">
-                    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-                        Participate in a Event
-                    </button>
+    <section>
+        <center>
+            <strong style="font-size:30px;text-shadow: 1px 1px 2px black;" th:text="${store.storeName}"></strong>
+        </center>
+        <hr class="featurette-divider"/>
+        <div class="py-3 text-center">
+            <img class="d-block mx-auto mb-4" th:src="@{'/storage/'+${store.storeImage}}" alt="" width="120" height="120">
+        </div>
+        <center>
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-wallet2" viewBox="0 0 16 16">
+            <path d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484L5.562 3zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z"/>
+            </svg>&nbsp<strong class="mt-8" style="font-size:20px;" th:text="'Wallet Balance : Rs. '+${wallet.walletBalance}"> </strong>
+        </center>
+        <hr class="featurette-divider"/>
+        <center>
+             <div class="container mt-3">
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                            Add Product
+                        </button>
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                            Add Blog
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </center>
+        </center>
+        <hr class="featurette-divider"/>
+        <div class="container">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Posted Products</button>
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Posted Blogs</button>
+                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Ordered Products</button>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="card text-center">
 
-    <hr class="featurette-divider"/>
-
-    <div class="container">
-
-        <div class="card text-center">
-
-
-                <nav>
-                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true"> Posted Products</button>
-                        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Posted Blogs</button>
-                        <button class="nav-link" id="nav-orders-tab" data-bs-toggle="tab" data-bs-target="#nav-orders" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Orders Received</button>
-                    </div>
-                </nav>
-
-
-
-            <div class="card-body">
-
-
-                <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-
-                        <div class="card card-body">
-
-                            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-2">
-                                <div class="card border-dark shadow bg-body rounded container-fluid col" th:each="p :${stprod}" style="width: 25rem;">
-                                    <div class="card-header"><h5 th:text="${p.productTitle}"></h5></div>
-                                    <div class="card-body">
-                                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                                            <div class="carousel-inner">
-                                                <div class="carousel-item active">
-                                                    <center>
-                                                        <img th:src="@{'/img/'+${p.productImage1}}"  height="250" width="250" alt="Sample"
-                                                        ></center>
-                                                </div>
-                                                <div class="carousel-item ">
-                                                    <center>
-                                                        <img th:src="@{'/img/'+${p.productImage2}}" height="250" width="250"
-                                                        ></center>
-                                                </div>
-                                            </div>
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-2">
+                        <div class="card border-dark shadow bg-body rounded container-fluid col" th:each="p :${stprod}" style="width: 25rem;">
+                            <div class="card-header"><h5 th:text="${p.productTitle}"></h5></div>
+                            <div class="card-body">
+                                <div id="carouselExampleControls2" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <center>
+                                                <img th:src="@{'/storage/'+${p.productImage1}}"  height="250" width="250" alt="Sample"
+                                                ></center>
                                         </div>
-                                        <hr>
-                                        <h6>Description :</h6>
-                                        <p class="card-text" th:text="${p.productDescription}"></p>
+                                        <div class="carousel-item ">
+                                            <center>
+                                                <img th:src="@{'/storage/'+${p.productImage2}}" height="250" width="250"
+                                                ></center>
+                                        </div>
                                     </div>
-                                    <div class="card-footer">
+                                </div>
+                                <hr>
+                                <h6>Description :</h6>
+                                <p class="card-text" th:text="${p.productDescription}"></p>
+                                <h6 th:text="'Price : '+${p.productCost}"></h6>
+                            </div>
+                            <div class="card-footer">
 
-                                        <center>
-                                            <button type="button" class="btn btn-outline-dark" data-bs-toggle="tooltip" data-bs-placement="top" title="Add To Favorite"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                                                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                            </svg></button>&nbsp;&nbsp;&nbsp
+                                <center>
+                                    <button type="button" class="btn btn-outline-dark" data-bs-toggle="tooltip" data-bs-placement="top" title="Add To Favorite"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                                    </svg></button>&nbsp;&nbsp;&nbsp
 
-                                            &nbsp;&nbsp;&nbsp;
-                                            <a th:href="@{'/shop/buy/'+${p.productId}}"><button type="button" class="btn btn-outline-dark" >Buy Know</button></a>
-                                            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-outline-dark" data-bs-toggle="tooltip" data-bs-placement="top" title="Video on how Product made by the Seller">
+                                    &nbsp;&nbsp;&nbsp;
+                                    <a th:href="@{'/shop/buy/'+${p.productId}}"><button type="button" class="btn btn-outline-dark" >Buy Know</button></a>
+                                    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                                    <a th:href="${p.productVideoUrl}" target="_blank">
+                                        <button type="button" class="btn btn-outline-dark" data-bs-toggle="tooltip" data-bs-placement="top" title="Video on how Product made by the Seller">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
                                                 <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
                                                 <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
                                             </svg>
                                         </button>
-
-                                        </center>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-
-
-                        <div class="container mb-3 mt-3" th:each="b :${stblog}">
-                            <div>
-                                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                                    <div class="col p-4 d-flex flex-column position-static">
-                                        <strong class="d-inline-block mb-2 text-primary">Store Name</strong>
-                                        <h3 class="mb-0" th:text="${b.blogTitle}"></h3>
-                                        <div class="mb-1 text-muted">Nov 12</div>
-                                        <p class="card-text mb-auto"  th:text="${b.blogDescription}"></p>
-                                        <a href="#" class="stretched-link">Continue reading</a>
-                                    </div>
-                                    <div class="col-auto d-none d-lg-block">
-                                        <img
-                                                th:src="@{'/img/'+${b.blogImage}}"
-                                                class="card-img-top"
-                                                alt="..."
-                                                style="height: 300px;width:500px;"
-                                        />
-                                    </div>
-                                </div>
+                                    </a>
+                                </center>
                             </div>
                         </div>
-
-
-
-
-                    </div>
-
-                    <div class="tab-pane fade" id="nav-orders" role="tabpanel" aria-labelledby="nav-orders-tab">
-
-                        <div class="card border-dark mt-3 " th:each="o :${storders}">
-                            <h4 class="card-header" th:text="'Order Id : '+${o.orderId}+'  ( '+${o.orderedProductId.productTitle}+' )'" >
-                            </h4>
-
-                            <div class="card-body">
-                                <blockquote class="blockquote mb-0 row">
-
-                                    <div class="col-3">
-                                        <h5>
-                                            Order Details :
-                                        </h5>
-                                        <h5 style="font-weight:normal;" class="card-text" th:text="'Price : '+${o.orderedProductId.productCost}"></h5>
-                                        <h5 style="font-weight:normal;" class="card-text" th:text="'Payment Id : '+${o.paymentId}"></h5>
-                                        <h5 style="font-weight:normal;" class="card-text" th:text="'Delivery Address : '+${o.orderAddress}"></h5>
-                                    </div>
-
-                                    <div class="col-3">
-
-                                        <h5>
-                                            Order Status :
-                                        </h5>
-                                        <h5 style="font-weight:normal;" class="card-text" th:text="'Payment Status : '+${o.orderStatus}"></h5>
-                                        <h5 style="font-weight:normal;" class="card-text" th:text="'Delivery Status : '+${o.orderState}"></h5>
-                                        <form th:action="@{/store/updateOrderState}" method="post" th:object="${orders}">
-
-                                            <div class="input-group">
-                                                <select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon" name="orderState">
-                                                    <option selected>Choose...</option>
-                                                    <option value="Confirm Order">Confirm Order </option>
-                                                    <option value="Shipped">Shipped </option>
-                                                    <option value="Reject Order">Reject Order </option>
-                                                </select>
-
-                                                <input th:value="${o.orderId}" hidden name="orderId">
-                                                <button class="btn btn-outline-dark" type="submit">Submit</button>
-                                            </div>
-
-                                        </form>
-
-                                    </div>
-
-                                    <div class="col-3"> <h5>
-                                        Seller Details :
-                                    </h5>
-
-                                    </div>
-
-                                    <div class="col-3">
-                                        <img th:src="@{'/img/'+${o.orderedProductId.productImage1}}" alt="" width="130" height="130">
-                                        <img th:src="@{'/img/'+${o.orderedProductId.productImage2}}" alt="" width="130" height="130">
-                                    </div>
-                                </blockquote>
-                            </div>
-                        </div>
-
                     </div>
 
                 </div>
+            </div>
 
+
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <div class="card text-center">
+
+                    <div class="container mb-3 mt-3" th:each="b :${stblog}">
+                        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                            <div class="col p-4 d-flex flex-column position-static">
+                                <strong class="d-inline-block mb-2 text-primary" th:text="${b.store.storeName}">Store Name</strong>
+                                <h3 class="mb-0" th:text="${b.blogTitle}"></h3>
+                                <!--                <div class="mb-1 text-muted">Nov 12</div>-->
+                                <p class="card-text mb-auto"  th:text="${b.blogDescription}"></p>
+
+
+
+                                <center>
+
+                                    <a th:href="${b.blogVideo}">
+                                        <button type="button" class="btn btn-outline-dark" data-bs-toggle="tooltip" data-bs-placement="top" title="Video on how Product made by the Seller">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                                                <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+                                                <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
+                                            </svg>
+                                            Video
+                                        </button>
+                                    </a>
+                                </center>
+
+                            </div>
+                            <div class="col-auto d-none d-lg-block">
+                                <img
+                                        th:src="@{'/storage/'+${b.blogImage}}"
+                                        class="card-img-top"
+                                        alt="..."
+                                        style="height: 300px;width:500px;"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                <div class="card text-center">
+
+                    <div class="card border-dark mt-3 " th:each="o :${storders}">
+                        <h4 class="card-header" th:text="'Order Id : '+${o.orderId}+'  ( '+${o.orderedProductId.productTitle}+' )'" >
+                        </h4>
+                        <div class="card-body">
+                            <blockquote class="blockquote mb-0 row">
+
+                                <div class="col-3">
+                                    <h5>
+                                        Order Details :
+                                    </h5>
+                                    <h5 style="font-weight:normal;" class="card-text" th:text="'Price : '+${o.orderedProductId.productCost}"></h5>
+                                    <h5 style="font-weight:normal;" class="card-text" th:text="'Payment Id : '+${o.paymentId}"></h5>
+                                    <h5 style="font-weight:normal;" class="card-text" th:text="'Delivery Address : '+${o.orderAddress}"></h5>
+                                </div>
+
+                                <div class="col-3">
+
+                                    <h5>
+                                        Order Status :
+                                    </h5>
+                                    <h5 style="font-weight:normal;" class="card-text" th:text="'Payment Status : '+${o.orderStatus}"></h5>
+                                    <h5 style="font-weight:normal;" class="card-text" th:text="'Delivery Status : '+${o.orderState}"></h5>
+                                    <form th:action="@{/store/updateOrderState}" method="post" th:object="${orders}">
+
+                                        <div class="input-group">
+                                            <select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon" name="orderState">
+                                                <option selected>Choose...</option>
+                                                <option value="Confirm Order">Confirm Order </option>
+                                                <option value="Shipped">Shipped </option>
+                                                <option value="Reject Order">Reject Order </option>
+                                            </select>
+
+                                            <input th:value="${o.orderId}" hidden name="orderId">
+                                            <button class="btn btn-outline-dark" type="submit">Submit</button>
+                                        </div>
+
+                                    </form>
+
+                                </div>
+
+                                <div class="col-3"> <h5>
+                                    Product Details :
+                                </h5>
+                                    <h5 style="font-weight:normal;" class="card-text" th:text="'Name : '+${o.orderedProductId.productTitle}"></h5>
+                                    <h5 style="font-weight:normal;" class="card-text" th:text="'Product Id : '+${o.orderedProductId.productId}"></h5>
+                                </div>
+
+                                <div class="col-3">
+                                    <img th:src="@{'/storage/'+${o.orderedProductId.productImage1}}" alt="" width="130" height="130">
+                                    <img th:src="@{'/storage/'+${o.orderedProductId.productImage2}}" alt="" width="130" height="130">
+                                </div>
+                            </blockquote>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
 
 
-
     </div>
+
+
+
+
     <!-- Modal 1-->
     <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <center><h5 class="modal-title" id="exampleModalLabel">Add Product</h5></center>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                            <div
-                                    class="col-lg-5 mx-auto border rounded shadow-lg p-3 mb-5 bg-white rounded pt-4 pb-4"
-                            >
-                                <h3 align="center">Add Product</h3>
-                                <form class="row g-3" th:action="@{/store/addProducts}" method="post" th:object="${product}" enctype="multipart/form-data">
+                    <div
+                            class="col-lg-5 mx-auto border rounded shadow-lg p-3 mb-5 bg-white rounded pt-4 pb-4"
+                    >
 
-                                    <div class="form-group mt-3">
-                                        <label>Product Name</label>
-                                        <input
-                                                required
-                                                type="text"
-                                                name="productTitle"
-                                                value=""
-                                                class="form-control mt-1"
-                                                placeholder="Enter Your Name"
-                                                aria-describedby="helpId"
-                                        />
-                                        <div class="valid-feedback"></div>
-                                        <div class="invalid-feedback">Please fill out this field.</div>
-                                    </div>
+                        <form class="row g-3" th:action="@{/store/addProduct}" method="post" th:object="${product}" enctype="multipart/form-data">
 
-
-                                    <div class="form-group mt-3">
-                                        <label for="exampleFormControlTextarea1">Description</label>
-                                        <textarea
-                                                class="form-control mt-1"
-                                                id="exampleFormControlTextarea1"
-                                                rows="3"
-                                                name="productDescription"
-                                        ></textarea>
-                                    </div>
-
-                                    <div class="form-group mt-3">
-                                        <label>Product Cost</label>
-                                        <input
-                                                required
-                                                type="number"
-                                                name="productCost"
-                                                class="form-control mt-1"
-                                                placeholder="0123456789"
-                                                aria-describedby="helpId"
-                                        />
-                                        <div class="valid-feedback"></div>
-                                        <div class="invalid-feedback">Please fill out this field.</div>
-                                    </div>
-                                    <div class="">
-                                        <label for="formFileMultiple1" class="form-label">Product Image-1</label>
-                                        <input class="form-control" type="file" id="formFileMultiple1" name="productimage1">
-                                    </div>
-
-                                    <div class="">
-                                        <label for="formFileMultiple2" class="form-label">Product Image-1</label>
-                                        <input class="form-control" type="file" id="formFileMultiple2" name="productimage2">
-                                    </div>
-
-                                    <div class="form-group mt-3">
-                                        <label>Video Url(YouTube)</label>
-                                        <input
-                                                required
-                                                type="text"
-                                                name="productVideoUrl"
-                                                value=""
-                                                class="form-control mt-1"
-                                                placeholder="Enter Your Name"
-                                                aria-describedby="helpId"
-                                        />
-                                        <div class="valid-feedback"></div>
-                                        <div class="invalid-feedback">Please fill out this field.</div>
-                                    </div>
-
-                                    <div class="form-group mt-3">
-                                        <button type="submit" name="submit" class="btn btn-dark">
-                                            Submit
-                                        </button>
-                                    </div>
-                                </form>
+                            <div class="form-group mt-3">
+                                <label>Product Name</label>
+                                <input
+                                        required
+                                        type="text"
+                                        name="productTitle"
+                                        value=""
+                                        class="form-control mt-1"
+                                        placeholder="Enter Your Name"
+                                        aria-describedby="helpId"
+                                        maxlength = "50"
+                                />
+                                <div class="valid-feedback"></div>
+                                <div class="invalid-feedback">Please fill out this field.</div>
                             </div>
+
+
+                            <div class="form-group mt-3">
+                                <label for="exampleFormControlTextarea1">Description</label>
+                                <textarea
+                                        class="form-control mt-1"
+                                        id="exampleFormControlTextarea1"
+                                        rows="3"
+                                        name="productDescription"
+                                        maxlength = "200"
+                                ></textarea>
+                            </div>
+
+                            <div class="form-group mt-3">
+                                <label>Product Cost</label>
+                                <input
+                                        required
+                                        type="number"
+                                        name="productCost"
+                                        class="form-control mt-1"
+                                        placeholder="0123456789"
+                                        aria-describedby="helpId"
+                                />
+                                <div class="valid-feedback"></div>
+                                <div class="invalid-feedback">Please fill out this field.</div>
+                            </div>
+                            <div class="">
+                                <label for="formFileMultiple1" class="form-label">Product Image-1</label>
+                                <input class="form-control" type="file" id="formFileMultiple1" name="productimage1">
+                            </div>
+
+                            <div class="">
+                                <label for="formFileMultiple2" class="form-label">Product Image-2</label>
+                                <input class="form-control" type="file" id="formFileMultiple2" name="productimage2">
+                            </div>
+
+                            <div class="form-group mt-3">
+                                <label>Video Url(YouTube)</label>
+                                <input
+                                        required
+                                        type="text"
+                                        name="productVideoUrl"
+                                        value=""
+                                        class="form-control mt-1"
+                                        placeholder="Enter Your Name"
+                                        aria-describedby="helpId"
+                                />
+                                <div class="valid-feedback"></div>
+                                <div class="invalid-feedback">Please fill out this field.</div>
+                            </div>
+
+                            <div class="form-group mt-3">
+                                <button type="submit" name="submit" class="btn btn-dark">
+                                    Submit
+                                </button>
+                            </div>
+                        </form>
+                    </div>
 
 
 
@@ -316,7 +318,7 @@
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel2">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel2">Add Blog</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -325,7 +327,7 @@
                     <div
                             class="col-lg-5 mx-auto border rounded shadow-lg p-3 mb-5 bg-white rounded pt-4 pb-4"
                     >
-                        <h3 align="center">Add Product</h3>
+
                         <form class="row g-3" th:action="@{/store/addBlog}" method="post" th:object="${blog}" enctype="multipart/form-data">
 
                             <div class="form-group mt-3">
@@ -338,6 +340,7 @@
                                         class="form-control mt-1"
                                         placeholder="Enter Your Name"
                                         aria-describedby="helpId"
+                                        maxlength = "50"
                                 />
                                 <div class="valid-feedback"></div>
                                 <div class="invalid-feedback">Please fill out this field.</div>
@@ -350,10 +353,11 @@
                                         id="exampleFormControlTextarea11"
                                         rows="3"
                                         name="blogDescription"
+                                        maxlength = "500"
                                 ></textarea>
                             </div>
                             <div class="">
-                                <label for="formFileMultiple12" class="form-label">Product Image-1</label>
+                                <label for="formFileMultiple12" class="form-label">Blog Image</label>
                                 <input class="form-control" type="file" id="formFileMultiple12" name="blogimage">
                             </div>
 
@@ -390,27 +394,6 @@
         </div>
     </div>
 
-
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel3">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    ...3
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-outline-success">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
 </section>
 </body>
 </html>

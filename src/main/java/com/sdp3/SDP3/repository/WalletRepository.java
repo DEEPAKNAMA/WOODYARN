@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface WalletRepository extends JpaRepository<Wallet,Long> {
 
-    @Query(value = "SELECT * FROM Wallet  WHERE store_id = ?1",nativeQuery = true)
+    @Query(value = "SELECT * FROM wallet  WHERE store_id = ?1",nativeQuery = true)
     Wallet findByStore(Long uid);
 }

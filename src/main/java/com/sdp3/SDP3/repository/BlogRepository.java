@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface BlogRepository extends JpaRepository<Blog,Long> {
-    @Query(value = "SELECT * FROM Blog  WHERE store_id = ?1",nativeQuery = true)
+    @Query(value = "SELECT * FROM blog  WHERE store_id = ?1",nativeQuery = true)
     List<Blog> findBlogByStoreId(Long storeId);
 }
