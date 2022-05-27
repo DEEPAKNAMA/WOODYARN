@@ -9,7 +9,7 @@
     <center><strong style="font-size:30px;text-shadow: 1px 1px 2px black;" th:text="${store.storeName}"></strong></center>
     <hr class="featurette-divider"/>
     <div class="py-3 text-center">
-        <img class="d-block mx-auto mb-4" th:src="@{'/img/'+${store.storeImage}}" alt="" width="120" height="120">
+        <img class="d-block mx-auto mb-4" th:src="@{'/storage/'+${store.storeImage}}" alt="" width="120" height="120">
     </div>
     <center><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-wallet2" viewBox="0 0 16 16">
         <path d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484L5.562 3zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z"/>
@@ -73,12 +73,12 @@
                                             <div class="carousel-inner">
                                                 <div class="carousel-item active">
                                                     <center>
-                                                        <img th:src="@{'/img/'+${p.productImage1}}"  height="250" width="250" alt="Sample"
+                                                        <img th:src="@{'/storage/'+${p.productImage1}}"  height="250" width="250" alt="Sample"
                                                         ></center>
                                                 </div>
                                                 <div class="carousel-item ">
                                                     <center>
-                                                        <img th:src="@{'/img/'+${p.productImage2}}" height="250" width="250"
+                                                        <img th:src="@{'/storage/'+${p.productImage2}}" height="250" width="250"
                                                         ></center>
                                                 </div>
                                             </div>
@@ -126,7 +126,7 @@
                                     </div>
                                     <div class="col-auto d-none d-lg-block">
                                         <img
-                                                th:src="@{'/img/'+${b.blogImage}}"
+                                                th:src="@{'/storage/'+${b.blogImage}}"
                                                 class="card-img-top"
                                                 alt="..."
                                                 style="height: 300px;width:500px;"
@@ -191,8 +191,8 @@
                                     </div>
 
                                     <div class="col-3">
-                                        <img th:src="@{'/img/'+${o.orderedProductId.productImage1}}" alt="" width="130" height="130">
-                                        <img th:src="@{'/img/'+${o.orderedProductId.productImage2}}" alt="" width="130" height="130">
+                                        <img th:src="@{'/storage/'+${o.orderedProductId.productImage1}}" alt="" width="130" height="130">
+                                        <img th:src="@{'/storage/'+${o.orderedProductId.productImage2}}" alt="" width="130" height="130">
                                     </div>
                                 </blockquote>
                             </div>
@@ -221,7 +221,7 @@
                                     class="col-lg-5 mx-auto border rounded shadow-lg p-3 mb-5 bg-white rounded pt-4 pb-4"
                             >
                                 <h3 align="center">Add Product</h3>
-                                <form class="row g-3" th:action="@{/store/addProducts}" method="post" th:object="${product}" enctype="multipart/form-data">
+                                <form class="row g-3" th:action="@{/store/addProduct}" method="post" th:object="${product}" enctype="multipart/form-data">
 
                                     <div class="form-group mt-3">
                                         <label>Product Name</label>

@@ -40,8 +40,11 @@ public class StoreController {
     @Autowired
     private WalletService walletService;
 
+    @Autowired
+    private S3service s3service;
+
     @RequestMapping(value = "/addProducts",method = RequestMethod.POST)
-    public String addProduct(@ModelAttribute("product") Product product, Model model, HttpSession session,
+    public String addProducts(@ModelAttribute("product") Product product, Model model, HttpSession session,
                              @RequestParam("productimage1") MultipartFile file1,
                              @RequestParam("productimage2") MultipartFile file2){
         Long uid=(Long) session.getAttribute("storeid");
@@ -79,6 +82,44 @@ public class StoreController {
             model.addAttribute("storders",o);
             Wallet wallet=walletService.findWalletByStoreId(uid1);
             model.addAttribute("wallet",wallet);
+<<<<<<< HEAD
+
+        }catch (Exception e){
+        }
+
+        return "store";
+    }
+
+
+    @RequestMapping(value = "/addProduct",method = RequestMethod.POST)
+    public String addProduct(@ModelAttribute("product") Product product, Model model, HttpSession session,
+                             @RequestParam("productimage1") MultipartFile file1,
+                             @RequestParam("productimage2") MultipartFile file2){
+
+        Long uid=(Long) session.getAttribute("storeid");
+        Store s=storeService.getUserByUserId(uid);
+        model.addAttribute("store",s);
+
+        try{
+            String fname1=s3service.uploadFile(file1);
+            product.setProductImage1(fname1);
+            String fname2=s3service.uploadFile(file2);
+            product.setProductImage2(fname2);
+            product.setStore(s);
+            productService.saveProduct(product);
+            Long uid1=(Long) session.getAttribute("storeid");
+            Store s1=storeService.getUserByUserId(uid1);
+            model.addAttribute("store",s1);
+            List<Product> products=productService.getProductsByStoreId(s1.getStoreId());
+            model.addAttribute("stprod",products);
+            List<Blog> blogs=blogService.getBlogByStoreId(s1.getStoreId());
+            model.addAttribute("stblog",blogs);
+            List<Orders> o=orderService.getOrdersByStoreId(s1.getStoreId());
+            model.addAttribute("storders",o);
+            Wallet wallet=walletService.findWalletByStoreId(uid1);
+            model.addAttribute("wallet",wallet);
+=======
+>>>>>>> Working
 
         }catch (Exception e){
         }
@@ -91,6 +132,37 @@ public class StoreController {
 
     @RequestMapping(value = "/addBlog",method = RequestMethod.POST)
     public String addBlog(@ModelAttribute("blog") Blog blog, Model model, HttpSession session,
+                          @RequestParam("blogimage") MultipartFile file){
+
+        Long uid=(Long) session.getAttribute("storeid");
+        Store s=storeService.getUserByUserId(uid);
+        model.addAttribute("store",s);
+        try{
+                String fname=s3service.uploadFile(file);
+                blog.setBlogImage(fname);
+            blog.setStore(s);
+            blogService.saveBlog(blog);
+            Long uid1=(Long) session.getAttribute("storeid");
+            Store s1=storeService.getUserByUserId(uid1);
+            model.addAttribute("store",s1);
+            List<Product> products=productService.getProductsByStoreId(s1.getStoreId());
+            model.addAttribute("stprod",products);
+            List<Blog> blogs=blogService.getBlogByStoreId(s1.getStoreId());
+            model.addAttribute("stblog",blogs);
+            List<Orders> o=orderService.getOrdersByStoreId(s1.getStoreId());
+            model.addAttribute("storders",o);
+            Wallet wallet=walletService.findWalletByStoreId(uid1);
+            model.addAttribute("wallet",wallet);
+
+        }catch (Exception e){
+
+        }
+        return "store";
+    }
+
+
+    @RequestMapping(value = "/addBlo",method = RequestMethod.POST)
+    public String addBlo(@ModelAttribute("blog") Blog blog, Model model, HttpSession session,
                           @RequestParam("blogimage") MultipartFile file){
 
         Long uid=(Long) session.getAttribute("storeid");
